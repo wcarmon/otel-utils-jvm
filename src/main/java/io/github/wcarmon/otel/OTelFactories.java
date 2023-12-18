@@ -2,6 +2,8 @@ package io.github.wcarmon.otel;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.List;
+
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.trace.Tracer;
@@ -11,12 +13,10 @@ import io.opentelemetry.sdk.OpenTelemetrySdk;
 import io.opentelemetry.sdk.resources.Resource;
 import io.opentelemetry.sdk.trace.SdkTracerProvider;
 import io.opentelemetry.sdk.trace.SpanProcessor;
-import java.util.List;
 
 /**
  * Typical patterns for constructing OpenTelemetry classes
- *
- * <p>Useful with or without dependency injection
+ * Useful with or without dependency injection
  */
 public final class OTelFactories {
 
@@ -66,6 +66,12 @@ public final class OTelFactories {
         return openTelemetry;
     }
 
+    /**
+     * Builds a Tracer for the given OpenTelemetry
+     *
+     * @param openTelemetry
+     * @return the unnamed tracer instance
+     */
     public static Tracer tracer(OpenTelemetry openTelemetry) {
         requireNonNull(openTelemetry, "openTelemetry is required and null.");
 

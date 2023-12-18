@@ -1,5 +1,4 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
-import kotlin.math.sign
 
 val mvnGroupId = "io.github.wcarmon"
 val mvnArtifactId = "otel-utils-jvm" // see settings.gradle.kts

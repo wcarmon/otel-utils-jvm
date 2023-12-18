@@ -2,7 +2,7 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 
 val mvnGroupId = "io.github.wcarmon"
 val mvnArtifactId = "otel-utils-jvm" // see settings.gradle.kts
-val mvnVersion = "1.0.0"
+val mvnVersion = "1.0.1"
 
 val ossrhPassword: String = providers.gradleProperty("ossrhPassword").getOrElse("")
 val ossrhUsername: String = providers.gradleProperty("ossrhUsername").getOrElse("")
@@ -24,8 +24,8 @@ group = mvnGroupId
 version = mvnVersion
 
 configure<JavaPluginExtension> {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
 }
 
 dependencies {
@@ -43,13 +43,8 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.1")
 
-    // -- TODO: their artifact is broken for modules
+    // -- TODO: This artifact is broken for modules
     // runtimeOnly("io.opentelemetry:opentelemetry-semconv:1.30.1-alpha")
-
-    // -- If you ever use lombok:
-    // annotationProcessor("org.projectlombok:lombok:1.18.30")
-    // compileOnly("org.projectlombok:lombok:1.18.30")
-    // implementation("org.projectlombok:lombok:1.18.30")
 }
 
 java {

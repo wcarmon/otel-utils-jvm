@@ -24,12 +24,17 @@ group = mvnGroupId
 version = mvnVersion
 
 configure<JavaPluginExtension> {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
     implementation("org.jetbrains:annotations:24.1.0")
+
+    implementation("io.opentelemetry:opentelemetry-api:1.33.0")
+    implementation("io.opentelemetry:opentelemetry-sdk:1.33.0")
+    implementation("org.apache.logging.log4j:log4j-core")
+    implementation("org.apache.logging.log4j:log4j-core:2.22.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.1")
@@ -37,6 +42,14 @@ dependencies {
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.1")
+
+    // -- TODO: their artifact is broken for modules
+    // runtimeOnly("io.opentelemetry:opentelemetry-semconv:1.30.1-alpha")
+
+    // -- If you ever use lombok:
+    // annotationProcessor("org.projectlombok:lombok:1.18.30")
+    // compileOnly("org.projectlombok:lombok:1.18.30")
+    // implementation("org.projectlombok:lombok:1.18.30")
 }
 
 java {

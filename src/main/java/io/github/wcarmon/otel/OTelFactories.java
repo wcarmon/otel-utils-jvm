@@ -76,6 +76,6 @@ public final class OTelFactories {
         requireNonNull(tracerConfig, "tracerConfig is required and null.");
 
         // -- unnamed tracer by default since most applications don't need multiple
-        return openTelemetry.getTracer(tracerConfig.tracerName());
+        return openTelemetry.getTracer(tracerConfig.instrumentationScopeName());
     }
 }

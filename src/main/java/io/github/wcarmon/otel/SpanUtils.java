@@ -7,16 +7,12 @@ import io.opentelemetry.api.trace.SpanContext;
 import io.opentelemetry.api.trace.StatusCode;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Context;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 
 // TODO: publish this
 
 /** Simplify idiomatic OpenTelemetry usage */
 public final class SpanUtils {
-
-    private static final Logger LOG = LogManager.getLogger(SpanUtils.class);
 
     private SpanUtils() {}
 
@@ -273,7 +269,7 @@ public final class SpanUtils {
             spanConsumer.runIn(span);
 
         } catch (Exception ex) {
-            LOG.warn("unhandled exception", ex);
+            System.err.println("unhandled exception: " + ex);
             throw record(span, ex);
 
         } finally {

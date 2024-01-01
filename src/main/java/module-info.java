@@ -7,7 +7,8 @@ module io.github.wcarmon.otel {
     requires io.opentelemetry.sdk.common;
     requires io.opentelemetry.sdk.trace;
     requires io.opentelemetry.sdk;
-    requires org.apache.logging.log4j.core;
-    requires org.apache.logging.log4j;
     requires org.jetbrains.annotations;
+
+// NOTE: uncomment if you use lombok
+// requires static lombok;
 }

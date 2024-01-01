@@ -71,10 +71,11 @@ public final class OTelFactories {
      * @param openTelemetry
      * @return the unnamed tracer instance
      */
-    public static Tracer tracer(OpenTelemetry openTelemetry) {
+    public static Tracer tracer(OpenTelemetry openTelemetry, TracerConfig tracerConfig) {
         requireNonNull(openTelemetry, "openTelemetry is required and null.");
+        requireNonNull(tracerConfig, "tracerConfig is required and null.");
 
         // -- unnamed tracer by default since most applications don't need multiple
-        return openTelemetry.getTracer("");
+        return openTelemetry.getTracer(tracerConfig.tracerName());
     }
 }

@@ -8,3 +8,6 @@
 ```sh
 ./gradlew clean spotlessApply build -q
 ```
+
+
+TODO: examples here
